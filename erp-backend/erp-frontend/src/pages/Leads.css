@@ -1,0 +1,695 @@
+/* =========================================================
+   TECHM4INDIA ERP - CRM LEADS
+   Professional CRM Interface
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.page-container {
+  width: 100%;
+  padding: 28px;
+  background: #f5f7fb;
+  min-height: calc(100vh - 64px);
+  color: #172033;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+  color: #111827;
+}
+
+.page-header p {
+  margin: 7px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.primary-button {
+  border: none;
+  border-radius: 9px;
+  padding: 11px 18px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondary-button {
+  border: 1px solid #d9dee8;
+  border-radius: 9px;
+  padding: 10px 15px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #b8c1d1;
+}
+
+.secondary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   SUMMARY CARDS
+========================================================= */
+
+.crm-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.crm-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 13px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.crm-card-info p {
+  margin: 0 0 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.crm-card-info h3 {
+  margin: 0;
+  font-size: 25px;
+  color: #111827;
+}
+
+.crm-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+  font-size: 19px;
+}
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.filters-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 13px;
+  padding: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: end;
+  gap: 13px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 150px;
+}
+
+.search-filter {
+  flex: 1;
+  min-width: 250px;
+}
+
+.filter-group label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.filter-group input,
+.filter-group select {
+  height: 40px;
+  width: 100%;
+  border: 1px solid #d9dee8;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #ffffff;
+  color: #374151;
+  outline: none;
+  font-size: 13px;
+  transition: border 0.2s ease;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.filter-clear {
+  height: 40px;
+}
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.form-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 13px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.045);
+}
+
+.form-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eef0f4;
+}
+
+.form-card-header h2 {
+  margin: 0;
+  font-size: 19px;
+  color: #111827;
+}
+
+.form-card-header p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 650;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid #d9dee8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: #374151;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+  height: 40px;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #eef0f4;
+}
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.table-card {
+  background: #ffffff;
+  border: 1px solid #e7eaf0;
+  border-radius: 13px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.table-header {
+  padding: 19px 20px;
+  border-bottom: 1px solid #edf0f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-header h2 {
+  margin: 0;
+  font-size: 17px;
+  color: #111827;
+}
+
+.record-count {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #8a93a3;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 1200px;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f8fafc;
+}
+
+th {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 750;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+td {
+  padding: 15px 16px;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 13px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: #f9fbff;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================================================
+   LEAD INFORMATION
+========================================================= */
+
+td strong {
+  font-weight: 650;
+  color: #1f2937;
+}
+
+.lead-company {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.lead-city {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #7c8798;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+td:nth-child(3) div:first-child {
+  color: #2563eb;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+td:nth-child(3) div:last-child {
+  color: #6b7280;
+  font-size: 11px;
+}
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.status-badge,
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.3px;
+}
+
+/* Status */
+
+.status-new {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.status-contacted {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.status-qualified {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.status-meeting {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.status-proposal {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.status-negotiation {
+  background: #fefce8;
+  color: #a16207;
+}
+
+.status-won {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-lost {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.status-unknown {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* =========================================================
+   PRIORITY
+========================================================= */
+
+.priority-low {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.priority-medium {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.priority-high {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.priority-urgent {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* =========================================================
+   VALUE
+========================================================= */
+
+td:nth-child(8) {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* =========================================================
+   FOLLOW UP
+========================================================= */
+
+.follow-up-date {
+  display: inline-block;
+  max-width: 145px;
+  line-height: 1.4;
+  color: #475569;
+  font-size: 11px;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.action-buttons {
+  display: flex;
+  gap: 7px;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  border-radius: 7px;
+  padding: 7px 11px;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.edit-button {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.edit-button:hover {
+  background: #dbeafe;
+}
+
+.delete-button {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.delete-button:hover {
+  background: #fee2e2;
+}
+
+/* =========================================================
+   LOADING / EMPTY
+========================================================= */
+
+.loading-state,
+.empty-state {
+  padding: 65px 20px;
+  text-align: center;
+}
+
+.loading-state {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.empty-state h3 {
+  margin: 0 0 7px;
+  font-size: 17px;
+  color: #374151;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #8a93a3;
+  font-size: 13px;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-top: 1px solid #edf0f4;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.pagination strong {
+  color: #1f2937;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .crm-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters-card {
+    flex-wrap: wrap;
+  }
+
+  .search-filter {
+    flex-basis: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .page-container {
+    padding: 15px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .page-header .primary-button {
+    width: 100%;
+  }
+
+  .crm-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group,
+  .search-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .filter-clear {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full-width {
+    grid-column: auto;
+  }
+
+  .form-card {
+    padding: 17px;
+  }
+
+  .form-card-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

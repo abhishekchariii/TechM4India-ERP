@@ -1,0 +1,260 @@
+.branches-page {
+  padding: 28px;
+}
+
+.branches-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.branches-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.branches-header p {
+  margin: 6px 0 0;
+  color: #64748b;
+}
+
+.branches-primary-btn,
+.branches-secondary-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.branches-primary-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.branches-primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.branches-secondary-btn {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.branches-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.branches-form-card,
+.branches-table-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.branches-form-card {
+  padding: 24px;
+}
+
+.branches-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.branches-form-header h2 {
+  margin: 0;
+}
+
+.branches-close-btn {
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.branches-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.branches-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.branches-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.branches-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.branches-field input {
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  padding: 11px 12px;
+  font-size: 14px;
+}
+
+.branches-field input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.branches-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.branches-checkbox label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.branches-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.branches-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.branch-stat-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.branch-stat-card span {
+  display: block;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.branch-stat-card strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 6px;
+}
+
+.branches-table-wrapper {
+  overflow-x: auto;
+}
+
+.branches-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.branches-table-wrapper th,
+.branches-table-wrapper td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.branches-table-wrapper th {
+  background: #f8fafc;
+  color: #475569;
+  font-size: 13px;
+}
+
+.branches-table-wrapper td {
+  color: #334155;
+}
+
+.branches-table-wrapper small {
+  color: #64748b;
+}
+
+.branch-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.branch-status.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.branch-status.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.branch-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.branch-actions button {
+  border: 0;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 7px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.branch-actions button.delete {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.branches-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.branches-empty h3 {
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 800px) {
+  .branches-page {
+    padding: 18px;
+  }
+
+  .branches-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .branches-form-grid,
+  .branches-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .branches-field.full-width {
+    grid-column: auto;
+  }
+}
