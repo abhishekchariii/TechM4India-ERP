@@ -30,161 +30,107 @@ import Organization from './pages/Organization';
 import Divisions from './pages/Divisions';
 import Leave from './pages/Leave';
 
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <>{children}</>;
+}
+
 function App() {
+  const token = localStorage.getItem('token');
+
   return (
     <Routes>
 
-      {/* Login page — no sidebar */}
+      {/* Login page */}
       <Route
         path="/login"
-        element={<Login />}
+        element={
+          token
+            ? <Navigate to="/dashboard" replace />
+            : <Login />
+        }
       />
 
-      {/* ERP pages — with sidebar */}
-      <Route element={<Layout />}>
+      {/* Protected ERP pages */}
+      <Route
+        element={
+          <ProtectedRoute>
+            <Layout />
+          </ProtectedRoute>
+        }
+      >
 
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
+        <Route path="/dashboard" element={<Dashboard />} />
 
-        <Route
-          path="/employees"
-          element={<Employees />}
-        />
+        <Route path="/employees" element={<Employees />} />
 
-        <Route
-          path="/departments"
-          element={<Departments />}
-        />
+        <Route path="/departments" element={<Departments />} />
 
-        <Route
-          path="/attendance"
-          element={<Attendance />}
-        />
+        <Route path="/attendance" element={<Attendance />} />
 
-        <Route
-          path="/leave"
-          element={<Leave />}
-        />
+        <Route path="/leave" element={<Leave />} />
 
-        <Route
-          path="/customers"
-          element={<Customers />}
-        />
+        <Route path="/customers" element={<Customers />} />
 
-        <Route
-          path="/leads"
-          element={<Leads />}
-        />
+        <Route path="/leads" element={<Leads />} />
 
-        {/* CRM Lead Details */}
-        <Route
-          path="/leads/:id"
-          element={<LeadDetails />}
-        />
+        <Route path="/leads/:id" element={<LeadDetails />} />
 
-        <Route
-          path="/institutions"
-          element={<Institutions />}
-        />
+        <Route path="/institutions" element={<Institutions />} />
 
-        <Route
-          path="/programs"
-          element={<Programs />}
-        />
+        <Route path="/programs" element={<Programs />} />
 
-        <Route
-          path="/projects"
-          element={<Projects />}
-        />
+        <Route path="/projects" element={<Projects />} />
 
-        <Route
-          path="/inventory"
-          element={<Inventory />}
-        />
+        <Route path="/inventory" element={<Inventory />} />
 
-        <Route
-          path="/assets"
-          element={<Assets />}
-        />
+        <Route path="/assets" element={<Assets />} />
 
-        <Route
-          path="/suppliers"
-          element={<Suppliers />}
-        />
+        <Route path="/suppliers" element={<Suppliers />} />
 
-        <Route
-          path="/sales-orders"
-          element={<SalesOrders />}
-        />
+        <Route path="/sales-orders" element={<SalesOrders />} />
 
-        <Route
-          path="/purchase-orders"
-          element={<PurchaseOrders />}
-        />
+        <Route path="/purchase-orders" element={<PurchaseOrders />} />
 
-        <Route
-          path="/invoices"
-          element={<Invoices />}
-        />
+        <Route path="/invoices" element={<Invoices />} />
 
-        <Route
-          path="/expenses"
-          element={<Expenses />}
-        />
+        <Route path="/expenses" element={<Expenses />} />
 
-        <Route
-          path="/payroll"
-          element={<Payroll />}
-        />
+        <Route path="/payroll" element={<Payroll />} />
 
-        <Route
-          path="/documents"
-          element={<Documents />}
-        />
+        <Route path="/documents" element={<Documents />} />
 
-        <Route
-          path="/notifications"
-          element={<Notifications />}
-        />
+        <Route path="/notifications" element={<Notifications />} />
 
-        <Route
-          path="/cms"
-          element={<CMS />}
-        />
+        <Route path="/cms" element={<CMS />} />
 
-        <Route
-          path="/reports"
-          element={<Reports />}
-        />
+        <Route path="/reports" element={<Reports />} />
 
-        <Route
-          path="/users"
-          element={<Users />}
-        />
+        <Route path="/users" element={<Users />} />
 
-        <Route
-          path="/branches"
-          element={<Branches />}
-        />
+        <Route path="/branches" element={<Branches />} />
 
-        <Route
-          path="/organization"
-          element={<Organization />}
-        />
+        <Route path="/organization" element={<Organization />} />
 
-        <Route
-          path="/divisions"
-          element={<Divisions />}
-        />
+        <Route path="/divisions" element={<Divisions />} />
 
       </Route>
 
-      {/* Unknown routes */}
+      {/* Root → Login */}
+      <Route
+        path="/"
+        element={<Navigate to="/login" replace />}
+      />
+
+      {/* Unknown routes → Login */}
       <Route
         path="*"
-        element={<Navigate to="/dashboard" replace />}
+        element={<Navigate to="/login" replace />}
       />
 
     </Routes>
