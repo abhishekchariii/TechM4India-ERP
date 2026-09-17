@@ -7,7 +7,7 @@ async function bootstrap() {
 
   // Enable CORS for React frontend
   app.enableCors({
-    origin:'https://tech-m4-india-erp-04dx.vercel.app',
+    origin:'https://tech-m4-india-erp.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Authorization',
   });
